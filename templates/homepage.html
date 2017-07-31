@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="../static/js/jquery-3.1.1.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <title>股票查询</title>
+    <style type="text/css">
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle!important;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form class="bs-example bs-example-form" role="form" action="{{url_for('homepage')}}" method="POST">
+        <br>
+        <div class="input-group" style="margin-left: 5%">
+            <input type="text" class="form-control" style="display: inline;width: 50%;height: 25px" name="storkcode">
+            <input type="submit" value="查询" style="margin-left: 2%" name="query">
+        </div>
+        <nav>
+        <a href="/getshares", target="_blank">股息市盈率市值删选</a> |
+        <a href="/getshengangtong", target="_blank">深港通股票查询</a> |
+        </nav>
+        <div>
+            {% if result %}
+            <table class="table table-hover table-bordered" style="width: 40%;margin-left: 5%">
+                <caption>股票查询结果</caption>
+                <thead>
+                <tr>
+                    <th>股票名称</th>
+                    <th>股票代码</th>
+                    <th>当前价格</th>
+                    <th>涨 跌</th>
+                    <th>涨 跌(%)</th>
+                    <th>成交量(手)</th>
+                    <th>成交额(万)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{result.stock_name}}</td>
+                    <td>{{result.stock_no}}</td>
+                    <td>{{result.current_price}}</td>
+                    <td>{{result.fluctuation}}</td>
+                    <td>{{result.fluctuation_by_percent}}%</td>
+                    <td>{{result.volume}}</td>
+                    <td>{{result.turnover}}</td>
+                </tr>
+                </tbody>
+            </table>
+            {% endif %}
+            {% if warning %}
+            <alert class="alert-warning" style="margin-left: 5%">
+                {{warning}}
+            </alert>
+            {% endif %}
+        </div>
+    </form>
+</div>
+<footer>
+  <p>Owner: Howard Chen</p>
+  <p>Contact information: <a href="mailto:chenlocus@hotmail.com">
+  chenlocus@hotmail.com</a>.</p>
+</footer>
+</body>
+</html>

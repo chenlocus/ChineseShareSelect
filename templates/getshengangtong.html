@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <!---link rel="stylesheet" href="/static/css/bootstrap.min.css"-->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="../static/js/jquery-3.1.1.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <title>股票挖掘</title>
+    <style type="text/css">
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle!important;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form class="getshares" role="form" action="{{url_for('getshengangtonglist')}}" method="POST">
+        <br>
+        <div class="input-group" style="margin-left: 5%">
+            <input type="radio" name="domain" value="shengangtong" {% if request.form['domain'] =="shengangtong": %} checked="checked" {%endif%}> 深港通股票<br>
+            <input type="radio" name="domain" value="all" {% if request.form['domain'] =="all": %} checked="checked" {%endif%} > 全部股票<br>
+            市盈率小于：
+            <input type="text" class="form-control" style="display: inline;width: 5%;height: 25px" name="pe" value="{{ request.form['pe'] }}"> 
+            市值小于：
+            <input type="text" class="form-control" style="display: inline;width: 10%;height: 25px" name="totalasset" value="{{ request.form['totalasset'] }}">亿<br>
+            <input type="submit" value="查询" style="margin-left: 2%" name="query">
+        </div>
+        <div>
+            {% if tables %}
+                <!--h1>股票挖掘</h1-->
+                {% for table in tables %}
+                    <h2>{{titles[loop.index]}}</h2>
+                    {{ table|safe }}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </form>
+</div>
+</body>
+</html>

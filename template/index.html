@@ -1,0 +1,109 @@
+<p xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <title>长虹易嘉恩云服务部接口测试平台</title>
+        <style type="text/css">
+            header {
+                background-color: #0099CC;
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#65bbce', endColorstr='#50b1c8');
+                /*border: 1px solid #348da7;*/
+                height: 50px;
+                overflow: hidden;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+
+            .btn-back {
+                font: 20px/27px Arial, Helvetica, sans-serif;
+                color: #FFFFFF;
+                text-decoration: none;
+                position: relative;
+                display: block;
+                float: left;
+                margin: 11px 0 0 5%;
+            }
+
+            /*h1 {*/
+            /*margin: 0 0 50px;*/
+            /*font-size: 40px;*/
+            /*text-transform: uppercase;*/
+            /*font: 40px/50px Arial,Helvetica,sans-serif;*/
+            /*color: #000000;*/
+            /*}*/
+
+            /*h2 {*/
+            /*color: #0077aa;*/
+            /*font-size: 20px;*/
+            /*margin-right: 10%;*/
+            /*margin-bottom: 40px;*/
+            /*}*/
+
+            input.defbtn {
+                color: white;
+                margin-left: 20%;
+                cursor: pointer;
+                width: 300px;
+                height: 50px;
+                line-height: 38px;
+                background: -webkit-linear-gradient(top, #5bbfd8, #449fb6);
+                background: -moz-linear-gradient(top, #5bbfd8, #449fb6);
+                padding: 0 20px;
+                border: 1px solid #2c96b2;
+                border-radius: 5px;
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);
+                font: 16px Arial, Helvetica, sans-serif;
+            }
+
+            label {
+                height: 24px;
+                line-height: 22px;
+                color: #0B3861;
+                padding-left: 18px;
+                font-size: 19px;
+                font-weight: 300;
+            }
+        </style>
+    </head>
+<div style="margin-left:5%;">
+    <img src="/static/images/ch_logo.png" height="78px" width="239px" onclick="location.href='/'"/>
+</div>
+<h1 align="center" style="color:#19070B"><b>长虹易嘉恩云服务部接口测试平台</b></h1>
+<h3 align="right" style="color:#008080;margin-right:10%;">-----云部自动化测试团队</h3>
+<div><br/><br/><br/></div>
+<header>
+    <div class="btn-back">
+        <span>请点击下列选择要使用的功能:</span>
+    </div>
+</header>
+<div><br/><br/><br/></div>
+<div>
+    <input type="button" value="单接口测试" onclick="javascrtpt:window.location.href='/test'" class="defbtn btn-info">
+    <label>在测试界面配置url,method,data等必要参数，然后自动进行用例扩展与测试</label>
+</div>
+<div><br/><br/><br/></div>
+<div>
+    <input type="button" value="批量接口测试" onclick="javascrtpt:window.location.href='/batch_cases'"
+           style="background: -webkit-linear-gradient(top, #EEAD0E, #EE7600);" class="defbtn btn-info">
+    <label>导入已配置用例集的excel表，然后对用例集进行用例扩展与测试</label>
+</div>
+<div><br/><br/><br/></div>
+<div>
+    <input type="button" value="Testng用例扩展" onclick="javascrtpt:window.location.href='/testng'"
+           style="background: -webkit-linear-gradient(top, #836FFF, #7D26CD)" class="defbtn btn-info">
+    <label>导入符合规范的Testng基本用例，然后自动进行用例扩展</label>
+</div>
+<div><br/><br/><br/></div>
+<div>
+    <input type="button" value="Postman数据生成用例" onclick="javascrtpt:window.location.href='/postman_upload'"
+           style="background: -webkit-linear-gradient(top, #7aba7b, #008B45)" class="defbtn btn-info">
+    <label>用户导入Postman数据，平台自动生成测试用例</label>
+</div>
+<div><br/><br/><br/></div>
+<!--<div>-->
+<!--<input type="button" value="使用Testng运行用例" onclick="javascrtpt:window.location.href='/test'"-->
+<!--style="background: -webkit-linear-gradient(top, #EE9572, #EE2C2C)" class="defbtn btn btn-primary">-->
+<!--<label>上传Testng用例，平台自动调用Testng模块对用例集进行测试</label>-->
+<!--</div>-->
+</body>
