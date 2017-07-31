@@ -30,7 +30,6 @@ pandocfilters==1.4.1
 pickleshare==0.7.4
 portend==2.1.2
 prompt-toolkit==1.0.14
-pulse-simulator==1.0.1
 Pygments==2.2.0
 pypiwin32==220
 python-dateutil==2.6.1
