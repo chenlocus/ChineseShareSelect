@@ -3,8 +3,6 @@ import urllib.request
 
 #newly added codes
 import pandas as pd
-import sys
-sys.path.append(".")
 import tushare as ts
 
 
