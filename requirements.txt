@@ -47,4 +47,4 @@ wcwidth==0.1.7
 webencodings==0.5.1
 Werkzeug==0.12.2
 widgetsnbextension==2.0.0
-tushare==0.8.2
+#tushare==0.8.2
