@@ -76,7 +76,7 @@ def get_shares(div_yield,price_earning,total_asset):
     price_earning = float(price_earning)
     total_asset = float(total_asset)
     df1 = ts.get_today_all()
-    df2 = ts.profit_data(top =1000)
+    df2 = ts.profit_data(top =200)
     df15= df1[(df1['per']<price_earning) & (df1['per']>0)]
     result = pd.merge(df15, df2, on=['code', 'name'])
     criteria1 = result[(result['low']>0) & (result['divi']/(10*result['low'])>div_yield) & (result['mktcap']<total_asset)]
