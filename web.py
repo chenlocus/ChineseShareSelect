@@ -1,10 +1,12 @@
 # coding:utf8
 import configparser
+import sys
 import flask
 from flask import render_template
 
 from stock_query import stock_check, result_parse, get_stock, get_shares, get_shengangtong
 
+sys.path.append('/Library/Frameworks/Python.framework/Versions/python/lib/python3.6/site-packages')
 
 app = flask.Flask(__name__)
 
