@@ -69,17 +69,21 @@ def stock_query():
 
 def get_shares(div_yield,price_earning,total_asset):
     if total_asset !=0:
-        total_asset =total_asset*10000
+        total_asset =total_asset*100000000
     else:
-        total_asset =6000*10000
+        total_asset =6000*100000000
     div_yield = float(div_yield)
     price_earning = float(price_earning)
     total_asset = float(total_asset)
     df1 = ts.get_today_all()
-    df2 = ts.profit_data(top =6000)
+    df2 = ts.profit_data(year=2016,top='all')
+    print ("data obtained")
     df15= df1[(df1['per']<price_earning) & (df1['per']>0)]
+    print ("select according to pe")
     result = pd.merge(df15, df2, on=['code', 'name'])
-    criteria1 = result[(result['low']>0) & (result['divi']/(10*result['low'])>div_yield) & (result['mktcap']<total_asset)]
+    print ("merged")
+    criteria1 = result[(result['low']>0) & (result['divi']/(10*result['low'])>div_yield) & (10000*result['mktcap']<total_asset)]
+    print ("select according to div div_yield")
     #criteria1.set_index('code', inplace=True)
     res_table = criteria1[['name','code','trade','changepercent','per','mktcap','volume']].reset_index(drop=True)
     print (res_table)
@@ -94,8 +98,9 @@ def get_shengangtong(shengangtong,price_earning,total_asset):
         sgtSet=pd[pd.index.str[:3].isin(['300', '000'])]
     else:
         sgtSet =pd
-    sgtSet5080 = sgtSet[(sgtSet['pe']*sgtSet['esp']*sgtSet['totals']<total_asset*10000)]
+    #sgtSet5080 = sgtSet[(sgtSet['pe']*sgtSet['esp']*sgtSet['totals']<total_asset*100000000)]
+    sgtSet5080 = sgtSet[(sgtSet['totalAssets']*10000<total_asset*100000000)]
     sgt=sgtSet5080[(sgtSet5080['pe']<price_earning)&(sgtSet5080['pe']>0)]
     print (sgt)
-    sgtResult = sgt[['name','industry','area','pe','totalAssets','pb']].reset_index(drop=False)
+    sgtResult = sgt[['name','industry','area','pe','esp','pb']].sort_values(["pe"],ascending=True)
     return sgtResult

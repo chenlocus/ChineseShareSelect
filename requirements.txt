@@ -50,3 +50,5 @@ webencodings==0.5.1
 Werkzeug==0.12.2
 widgetsnbextension==2.0.0
 gevent==1.2.2
+rq==0.8.1
+Redis==2.6.0.
